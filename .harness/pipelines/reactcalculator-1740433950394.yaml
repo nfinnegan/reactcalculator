@@ -38,3 +38,26 @@ pipeline:
             spec: {}
             type: Cloud
         type: CI
+    - stage:
+        name: run test step
+        identifier: run_test_step
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: npm test
+                  description: test
