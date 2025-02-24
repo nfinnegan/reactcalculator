@@ -60,7 +60,15 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
-                      npm install -g mocha
-                      npm mocha
-                      npm test
+                      echo "Installing dependencies..."
+                      npm install
+                      echo "Running tests..."
+                      npm test  # or npx mocha
                   description: test
+          sharedPaths:
+            - ""
+          caching:
+            enabled: false
+            paths: []
+          buildIntelligence:
+            enabled: false
