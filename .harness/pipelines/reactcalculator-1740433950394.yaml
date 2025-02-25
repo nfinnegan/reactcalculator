@@ -46,11 +46,11 @@ pipeline:
         spec:
           cloneCodebase: true
           platform:
-            arch: Amd64
-            os: Linux
+            os: MacOS
+            arch: Arm64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
           execution:
             steps:
               - step:
@@ -59,11 +59,7 @@ pipeline:
                   identifier: Run_1
                   spec:
                     shell: Sh
-                    command: |-
-                      echo "Installing dependencies..."
-                      npm install
-                      echo "Running tests..."
-                      npm test  # or npx mocha
+                    command: mocha -R spec spec.js
                   description: test
           sharedPaths:
             - ""
