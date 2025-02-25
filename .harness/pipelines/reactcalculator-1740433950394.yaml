@@ -59,7 +59,11 @@ pipeline:
                   identifier: Run_1
                   spec:
                     shell: Sh
-                    command: mocha -R spec spec.js --exit
+                    command: |-
+                      echo "Installing dependencies..."
+                      npm install
+                      echo "Running tests..."
+                      npm test  # or npx mocha
                   description: test
           sharedPaths:
             - ""
